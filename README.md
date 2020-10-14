@@ -11,3 +11,8 @@ npm install
 ```
 npm start
 ```
+
+
+### URL
+
+App hosted in: https://extractify-backend-1.herokuapp.com
