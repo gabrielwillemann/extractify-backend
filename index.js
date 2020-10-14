@@ -11,7 +11,7 @@ let upload = multer({ dest: 'uploads/' });
 
 app.use(cors());
 
-app.post('/pdf/upload', upload.single('my-pdf'), async (req, res) => {
+app.post('/pdf', upload.single('file-pdf'), async (req, res) => {
   let now = new Date();
   let newName = `uploads/${now.toISOString()}`;
   await fs.rename(req.file.path, newName);
@@ -31,6 +31,12 @@ app.get('/pdf', async (req, res) => {
     files.push({ datetime: name, data: data.text });
   }
   res.send(files);
+});
+
+app.delete('/pdf/:name', async (req, res) => {
+  let file = `./uploads/${req.params.name}`;
+  await fs.unlink(file);
+  res.send({ deleted: true });
 });
 
 app.listen(port, () => {

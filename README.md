@@ -1,1 +1,13 @@
-Ready app, just need to publish. I will publish, tomorrow.
+# extractify-backend
+
+## Project setup
+
+```
+npm install
+```
+
+### Start project
+
+```
+npm start
+```
